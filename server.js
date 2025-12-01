@@ -36,7 +36,7 @@ app.get('/images/lessons/:file', (req, res) => {
   }
   return res.status(404).json({ error: 'Image not found', file });
 });
-
+// make sure we can see the public file route
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ===== Connect MongoDB Atlas =====
