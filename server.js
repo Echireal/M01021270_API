@@ -50,7 +50,7 @@ const client = new MongoClient(uri, {
 
 await client.connect(); // connect the client
 const db = client.db();
-await db.command({ ping: 1 });
+await db.command({ ping: 1 }); // to check it have response or not
 console.log('✅ Connected to MongoDB Atlas');
 
 // only update these fields
