@@ -137,6 +137,7 @@ app.put('/api/lessons/:id', async (req, res) => {
       return res.status(400).json({ error: 'No valid fields to update' });
     }
 
+    // update the lessons field here
     const result = await db.collection('lessons').updateOne(
       { _id: oid },
       { $set: updates }
