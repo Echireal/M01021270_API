@@ -59,7 +59,7 @@ const ALLOWED_LESSON_FIELDS = new Set(['topic', 'price', 'location', 'space', 'd
 // ===== Health Check =====
 app.get('/api/health', async (_req, res) => {
   try {
-    await db.command({ ping: 1 });
+    await db.command({ ping: 1 }); // give a response
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ ok: false, error: String(e) });
