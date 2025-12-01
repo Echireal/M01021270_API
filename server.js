@@ -173,6 +173,7 @@ app.get('/api/search', async (req, res) => {
       ],
     };
 
+    // use find to find the result and give the response back to front end
     const results = await db.collection('lessons').find(filter).toArray();
     res.json(results);
   } catch (e) {
