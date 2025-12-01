@@ -30,8 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ===== 静态图片中间件（要求 B）=====
-// 访问示例：GET /images/lessons/lesson1.jpg
+// ===== imgae middleware =====
 app.get('/images/lessons/:file', (req, res) => {
   const file = req.params.file;
   const abs = path.join(__dirname, 'public', 'images', 'lessons', file);
@@ -41,7 +40,6 @@ app.get('/images/lessons/:file', (req, res) => {
   return res.status(404).json({ error: 'Image not found', file });
 });
 
-// 可选：把 public 暴露出来（例如 /logo.png）
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ===== Connect MongoDB Atlas =====
