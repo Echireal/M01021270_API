@@ -81,7 +81,7 @@ app.post('/api/orders', async (req, res) => {
   try {
     let { name, phone, lessonIds, spaces, items } = req.body || {};
 
-    // validation
+    // Validation
     if (!name || !phone) {
       return res.status(400).json({ error: 'name and phone are required' });
     }
