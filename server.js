@@ -48,7 +48,7 @@ const client = new MongoClient(uri, {
   serverApi: { version: ServerApiVersion.v1, strict: true, deprecationErrors: true },
 });
 
-await client.connect();
+await client.connect(); // connect the client
 const db = client.db();
 await db.command({ ping: 1 });
 console.log('✅ Connected to MongoDB Atlas');
