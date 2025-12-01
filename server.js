@@ -1,4 +1,3 @@
-// M01021270_API/server.js
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
@@ -9,15 +8,13 @@ import 'dotenv/config';
 
 const app = express();
 
-// ===== 基础中间件 =====
 app.use(cors());
-app.use(express.json());
+app.use(express.json());// Caution: use JSON to post in postman, not text
 
-// ===== 计算 __dirname（ESM 写法）=====
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ===== 自定义 logger 中间件（要求 A）=====
+// ===== logger middleware =====
 app.use((req, res, next) => {
   const startedAt = Date.now();
   res.on('finish', () => {
@@ -52,12 +49,11 @@ const client = new MongoClient(uri, {
 });
 
 await client.connect();
-// 如果 URI 里已经带了 db 名（例如 .../fullstack-cw1?...），这里的 db() 就是那个库
 const db = client.db();
 await db.command({ ping: 1 });
 console.log('✅ Connected to MongoDB Atlas');
 
-// 小工具：只允许更新这些字段
+// only update these fields
 const ALLOWED_LESSON_FIELDS = new Set(['topic', 'price', 'location', 'space', 'desc']);
 
 // ===== Health Check =====
@@ -70,7 +66,7 @@ app.get('/api/health', async (_req, res) => {
   }
 });
 
-// ===== A. GET /api/lessons —— 返回全部课程（要求）=====
+// GET lessons
 app.get('/api/lessons', async (_req, res) => {
   try {
     const lessons = await db.collection('lessons').find().toArray();
@@ -80,19 +76,16 @@ app.get('/api/lessons', async (_req, res) => {
   }
 });
 
-// ===== B. POST /api/orders —— 保存订单到 orders 集合（要求）=====
-// 期望最小字段：name, phone, lessonIds(Array of ObjectId string), spaces(Number)
-// 也支持传 items: [{ lessonId, qty }]，我们会自动派生 lessonIds 与 spaces
+// POST orders
 app.post('/api/orders', async (req, res) => {
   try {
     let { name, phone, lessonIds, spaces, items } = req.body || {};
 
-    // 基础校验
+    // validation
     if (!name || !phone) {
       return res.status(400).json({ error: 'name and phone are required' });
     }
 
-    // 兼容两种 body 形态
     if (Array.isArray(items) && items.length > 0) {
       const ids = [];
       let totalSpaces = 0;
@@ -124,7 +117,7 @@ app.post('/api/orders', async (req, res) => {
   }
 });
 
-// 示例：PUT /api/lessons/6761f0...  body: { "space": 3 }
+// PUT update lessons
 app.put('/api/lessons/:id', async (req, res) => {
   try {
     const id = req.params.id;
@@ -135,7 +128,7 @@ app.put('/api/lessons/:id', async (req, res) => {
       return res.status(400).json({ error: 'Invalid lesson id' });
     }
 
-    // 只允许白名单字段
+    // only update Allowed fields
     const updates = {};
     for (const [k, v] of Object.entries(req.body || {})) {
       if (ALLOWED_LESSON_FIELDS.has(k)) updates[k] = v;
@@ -182,8 +175,6 @@ app.get('/api/search', async (req, res) => {
 
     const results = await db.collection('lessons').find(filter).toArray();
     res.json(results);
-    // 若你想要附带条数与原查询词，也可改为：
-    // res.json({ query: raw, count: results.length, results });
   } catch (e) {
     res.status(500).json({ error: String(e) });
   }
@@ -192,5 +183,5 @@ app.get('/api/search', async (req, res) => {
 // ===== Start service =====
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`🚀 API listening at http://localhost:${port}`);
+  console.log(`API listening at http://localhost:${port}`);
 });
