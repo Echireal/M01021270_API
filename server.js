@@ -166,6 +166,7 @@ app.get('/api/search', async (req, res) => {
     const asNumber = Number(raw);
     const isNumeric = Number.isFinite(asNumber);
 
+    //make a filter to search
     const filter = {
       $or: [
         { topic: { $regex: ciRegex } },
