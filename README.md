@@ -40,6 +40,7 @@ Displays a list of lessons retrieved from the backend API.
 Allows sorting lessons by topic, location, price, and available spaces.
 Provides cart functionality: add, remove, increase/decrease quantity.
 Includes form validation (name + phone) before order submission.
+Implements the search functionality in the backend using the REST API /search.
 Implements a real-time “search as you type” feature.
 Dynamically shows lesson icons served by the backend static middleware.
 Uses fetch() to communicate with backend REST routes.
