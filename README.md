@@ -10,8 +10,8 @@ https://echireal.github.io/FullStackDevelopment_VueCode/
 Github Express Back End Repository link
 https://github.com/Echireal/M01021270_API
 
-Render.com link
-https://fullstack-cw1-api.onrender.com
+Render.com link that return all lessons
+https://fullstack-cw1-api.onrender.com/api/lesssons
 
 ## Catution:
 https://fullstack-cw1-api.onrender.com maybe shows "Can not GET",
