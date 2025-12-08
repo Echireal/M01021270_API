@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "52c30f25-7f44-479c-b9ae-6da5073a0ca7",
+		"name": "M01021270_Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50081336",
+		"_collection_link": "https://a2975615179-1252977.postman.co/workspace/Echireal's-Workspace~c57ef2aa-09b4-4cb0-8b83-2aa863af95d0/collection/50081336-52c30f25-7f44-479c-b9ae-6da5073a0ca7?action=share&source=collection_link&creator=50081336"
+	},
+	"item": [
+		{
+			"name": "GET Lessons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fullstack-cw1-api.onrender.com/api/lessons",
+					"protocol": "https",
+					"host": [
+						"fullstack-cw1-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"lessons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Zebin Luo\",\r\n  \"phone\": \"07884587925\",\r\n  \"items\": [\r\n    {\r\n      \"lessonId\": \"69136c17c66d825a6fe3f29d\",\r\n      \"qty\": 1\r\n    },\r\n    {\r\n      \"lessonId\": \"69136c7fc66d825a6fe3f29e\",\r\n      \"qty\": 2\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fullstack-cw1-api.onrender.com/api/orders",
+					"protocol": "https",
+					"host": [
+						"fullstack-cw1-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Lessons",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"space\" : 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fullstack-cw1-api.onrender.com/api/lessons/69136cf7c8bab85aa13f10a6",
+					"protocol": "https",
+					"host": [
+						"fullstack-cw1-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"lessons",
+						"69136cf7c8bab85aa13f10a6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fullstack-cw1-api.onrender.com/api/search/?q=Vue",
+					"protocol": "https",
+					"host": [
+						"fullstack-cw1-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Vue"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

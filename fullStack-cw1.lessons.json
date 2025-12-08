@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "69136c17c66d825a6fe3f29d"
+  },
+  "topic": "Vue Basics",
+  "price": "399",
+  "location": "London",
+  "space": 10,
+  "image": "lesson2.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10a5"
+  },
+  "topic": "Vue Basics",
+  "price": 399,
+  "location": "London",
+  "space": 5,
+  "image": "lesson2.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10a6"
+  },
+  "topic": "Vue Advanced",
+  "price": 599,
+  "location": "Leeds",
+  "space": 3,
+  "image": "lesson3.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10a7"
+  },
+  "topic": "Node & Express",
+  "price": 499,
+  "location": "Bristol",
+  "space": 2,
+  "image": "lesson5.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10a8"
+  },
+  "topic": "MongoDB Essentials",
+  "price": 449,
+  "location": "Glasgow",
+  "space": 6,
+  "image": "lesson6.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10a9"
+  },
+  "topic": "JavaScript Fundamentals",
+  "price": 299,
+  "location": "Manchester",
+  "space": 5,
+  "image": "lesson4.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10aa"
+  },
+  "topic": "TypeScript for Vue",
+  "price": 429,
+  "location": "Cardiff",
+  "space": 5,
+  "image": "lesson2.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10ab"
+  },
+  "topic": "Frontend Testing",
+  "price": 379,
+  "location": "Belfast",
+  "space": 1,
+  "image": "lesson1.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10ac"
+  },
+  "topic": "REST API Design",
+  "price": 459,
+  "location": "Leicester",
+  "space": 1,
+  "image": "lesson1.png"
+},
+{
+  "_id": {
+    "$oid": "69136cf7c8bab85aa13f10ad"
+  },
+  "topic": "Deployment with Render",
+  "price": 399,
+  "location": "Bristol",
+  "space": 4,
+  "image": "lesson2.png"
+}]
